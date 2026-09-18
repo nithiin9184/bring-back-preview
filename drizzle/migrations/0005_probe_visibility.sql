@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS public.__probe (id int primary key);

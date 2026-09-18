@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1789725756521,
+      "tag": "0000_core_profiles_calls_backup",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789725930334,
+      "tag": "0001_messages_notifications_social_status_media",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789726057784,
+      "tag": "0002_credits_connect_account_state_likes",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1789726106914,
+      "tag": "0003_status_and_chat_media_storage_policies",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1789729877138,
+      "tag": "0004_appearance_media_storage_policies",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1789734897461,
+      "tag": "0005_probe_visibility",
+      "breakpoints": true
+    }
+  ]
+}
