@@ -10,33 +10,315 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as ContactsRouteImport } from './routes/contacts'
+import { Route as CreateAccountRouteImport } from './routes/create-account'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as QrRouteImport } from './routes/qr'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as StatusRouteImport } from './routes/status'
+import { Route as VerifyRouteImport } from './routes/verify'
+import { Route as ChatIndexRouteImport } from './routes/chat.index'
+import { Route as ChatUsernameRouteImport } from './routes/chat.$username'
+import { Route as ProfileIndexRouteImport } from './routes/profile.index'
+import { Route as ProfileUsernameRouteImport } from './routes/profile.$username'
+import { Route as SettingsIndexRouteImport } from './routes/settings.index'
+import { Route as SettingsSectionRouteImport } from './routes/settings.$section'
+import { Route as OauthGoogleDriveReturnRouteImport } from './routes/oauth.google-drive.return'
+import { Route as SettingsLegalIndexRouteImport } from './routes/settings.legal.index'
+import { Route as SettingsLegalDocumentRouteImport } from './routes/settings.legal.$document'
+import { Route as ApiPublicHooksBackupSchedulerRouteImport } from './routes/api/public/hooks/backup-scheduler'
+import { Route as ApiPublicHooksPaymentsRazorpayRouteImport } from './routes/api/public/hooks/payments-razorpay'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactsRoute = ContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreateAccountRoute = CreateAccountRouteImport.update({
+  id: '/create-account',
+  path: '/create-account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QrRoute = QrRouteImport.update({
+  id: '/qr',
+  path: '/qr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerifyRoute = VerifyRouteImport.update({
+  id: '/verify',
+  path: '/verify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatIndexRoute = ChatIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ChatRoute,
+} as any)
+const ChatUsernameRoute = ChatUsernameRouteImport.update({
+  id: '/$username',
+  path: '/$username',
+  getParentRoute: () => ChatRoute,
+} as any)
+const ProfileIndexRoute = ProfileIndexRouteImport.update({
+  id: '/profile/',
+  path: '/profile/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileUsernameRoute = ProfileUsernameRouteImport.update({
+  id: '/profile/$username',
+  path: '/profile/$username',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsIndexRoute = SettingsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const SettingsSectionRoute = SettingsSectionRouteImport.update({
+  id: '/$section',
+  path: '/$section',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const OauthGoogleDriveReturnRoute = OauthGoogleDriveReturnRouteImport.update({
+  id: '/oauth/google-drive/return',
+  path: '/oauth/google-drive/return',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsLegalIndexRoute = SettingsLegalIndexRouteImport.update({
+  id: '/legal/',
+  path: '/legal/',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const SettingsLegalDocumentRoute = SettingsLegalDocumentRouteImport.update({
+  id: '/legal/$document',
+  path: '/legal/$document',
+  getParentRoute: () => SettingsRoute,
+} as any)
+const ApiPublicHooksBackupSchedulerRoute =
+  ApiPublicHooksBackupSchedulerRouteImport.update({
+    id: '/api/public/hooks/backup-scheduler',
+    path: '/api/public/hooks/backup-scheduler',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ApiPublicHooksPaymentsRazorpayRoute =
+  ApiPublicHooksPaymentsRazorpayRouteImport.update({
+    id: '/api/public/hooks/payments-razorpay',
+    path: '/api/public/hooks/payments-razorpay',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRouteWithChildren
+  '/connect': typeof ConnectRoute
+  '/contacts': typeof ContactsRoute
+  '/create-account': typeof CreateAccountRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/qr': typeof QrRoute
+  '/settings': typeof SettingsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/verify': typeof VerifyRoute
+  '/chat/$username': typeof ChatUsernameRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/settings/$section': typeof SettingsSectionRoute
+  '/chat/': typeof ChatIndexRoute
+  '/profile/': typeof ProfileIndexRoute
+  '/settings/': typeof SettingsIndexRoute
+  '/oauth/google-drive/return': typeof OauthGoogleDriveReturnRoute
+  '/settings/legal/$document': typeof SettingsLegalDocumentRoute
+  '/settings/legal/': typeof SettingsLegalIndexRoute
+  '/api/public/hooks/backup-scheduler': typeof ApiPublicHooksBackupSchedulerRoute
+  '/api/public/hooks/payments-razorpay': typeof ApiPublicHooksPaymentsRazorpayRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connect': typeof ConnectRoute
+  '/contacts': typeof ContactsRoute
+  '/create-account': typeof CreateAccountRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/qr': typeof QrRoute
+  '/status': typeof StatusRoute
+  '/verify': typeof VerifyRoute
+  '/chat/$username': typeof ChatUsernameRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/settings/$section': typeof SettingsSectionRoute
+  '/chat': typeof ChatIndexRoute
+  '/profile': typeof ProfileIndexRoute
+  '/settings': typeof SettingsIndexRoute
+  '/oauth/google-drive/return': typeof OauthGoogleDriveReturnRoute
+  '/settings/legal/$document': typeof SettingsLegalDocumentRoute
+  '/settings/legal': typeof SettingsLegalIndexRoute
+  '/api/public/hooks/backup-scheduler': typeof ApiPublicHooksBackupSchedulerRoute
+  '/api/public/hooks/payments-razorpay': typeof ApiPublicHooksPaymentsRazorpayRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatRouteWithChildren
+  '/connect': typeof ConnectRoute
+  '/contacts': typeof ContactsRoute
+  '/create-account': typeof CreateAccountRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/qr': typeof QrRoute
+  '/settings': typeof SettingsRouteWithChildren
+  '/status': typeof StatusRoute
+  '/verify': typeof VerifyRoute
+  '/chat/$username': typeof ChatUsernameRoute
+  '/profile/$username': typeof ProfileUsernameRoute
+  '/settings/$section': typeof SettingsSectionRoute
+  '/chat/': typeof ChatIndexRoute
+  '/profile/': typeof ProfileIndexRoute
+  '/settings/': typeof SettingsIndexRoute
+  '/oauth/google-drive/return': typeof OauthGoogleDriveReturnRoute
+  '/settings/legal/$document': typeof SettingsLegalDocumentRoute
+  '/settings/legal/': typeof SettingsLegalIndexRoute
+  '/api/public/hooks/backup-scheduler': typeof ApiPublicHooksBackupSchedulerRoute
+  '/api/public/hooks/payments-razorpay': typeof ApiPublicHooksPaymentsRazorpayRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/connect'
+    | '/contacts'
+    | '/create-account'
+    | '/home'
+    | '/login'
+    | '/notifications'
+    | '/qr'
+    | '/settings'
+    | '/status'
+    | '/verify'
+    | '/chat/$username'
+    | '/profile/$username'
+    | '/settings/$section'
+    | '/chat/'
+    | '/profile/'
+    | '/settings/'
+    | '/oauth/google-drive/return'
+    | '/settings/legal/$document'
+    | '/settings/legal/'
+    | '/api/public/hooks/backup-scheduler'
+    | '/api/public/hooks/payments-razorpay'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/connect'
+    | '/contacts'
+    | '/create-account'
+    | '/home'
+    | '/login'
+    | '/notifications'
+    | '/qr'
+    | '/status'
+    | '/verify'
+    | '/chat/$username'
+    | '/profile/$username'
+    | '/settings/$section'
+    | '/chat'
+    | '/profile'
+    | '/settings'
+    | '/oauth/google-drive/return'
+    | '/settings/legal/$document'
+    | '/settings/legal'
+    | '/api/public/hooks/backup-scheduler'
+    | '/api/public/hooks/payments-razorpay'
+  id:
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/connect'
+    | '/contacts'
+    | '/create-account'
+    | '/home'
+    | '/login'
+    | '/notifications'
+    | '/qr'
+    | '/settings'
+    | '/status'
+    | '/verify'
+    | '/chat/$username'
+    | '/profile/$username'
+    | '/settings/$section'
+    | '/chat/'
+    | '/profile/'
+    | '/settings/'
+    | '/oauth/google-drive/return'
+    | '/settings/legal/$document'
+    | '/settings/legal/'
+    | '/api/public/hooks/backup-scheduler'
+    | '/api/public/hooks/payments-razorpay'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatRoute: typeof ChatRouteWithChildren
+  ConnectRoute: typeof ConnectRoute
+  ContactsRoute: typeof ContactsRoute
+  CreateAccountRoute: typeof CreateAccountRoute
+  HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
+  NotificationsRoute: typeof NotificationsRoute
+  QrRoute: typeof QrRoute
+  SettingsRoute: typeof SettingsRouteWithChildren
+  StatusRoute: typeof StatusRoute
+  VerifyRoute: typeof VerifyRoute
+  ProfileUsernameRoute: typeof ProfileUsernameRoute
+  ProfileIndexRoute: typeof ProfileIndexRoute
+  OauthGoogleDriveReturnRoute: typeof OauthGoogleDriveReturnRoute
+  ApiPublicHooksBackupSchedulerRoute: typeof ApiPublicHooksBackupSchedulerRoute
+  ApiPublicHooksPaymentsRazorpayRoute: typeof ApiPublicHooksPaymentsRazorpayRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +330,211 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacts': {
+      id: '/contacts'
+      path: '/contacts'
+      fullPath: '/contacts'
+      preLoaderRoute: typeof ContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/create-account': {
+      id: '/create-account'
+      path: '/create-account'
+      fullPath: '/create-account'
+      preLoaderRoute: typeof CreateAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qr': {
+      id: '/qr'
+      path: '/qr'
+      fullPath: '/qr'
+      preLoaderRoute: typeof QrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verify': {
+      id: '/verify'
+      path: '/verify'
+      fullPath: '/verify'
+      preLoaderRoute: typeof VerifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat/': {
+      id: '/chat/'
+      path: '/'
+      fullPath: '/chat/'
+      preLoaderRoute: typeof ChatIndexRouteImport
+      parentRoute: typeof ChatRoute
+    }
+    '/chat/$username': {
+      id: '/chat/$username'
+      path: '/$username'
+      fullPath: '/chat/$username'
+      preLoaderRoute: typeof ChatUsernameRouteImport
+      parentRoute: typeof ChatRoute
+    }
+    '/profile/': {
+      id: '/profile/'
+      path: '/profile'
+      fullPath: '/profile/'
+      preLoaderRoute: typeof ProfileIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile/$username': {
+      id: '/profile/$username'
+      path: '/profile/$username'
+      fullPath: '/profile/$username'
+      preLoaderRoute: typeof ProfileUsernameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/': {
+      id: '/settings/'
+      path: '/'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof SettingsIndexRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/settings/$section': {
+      id: '/settings/$section'
+      path: '/$section'
+      fullPath: '/settings/$section'
+      preLoaderRoute: typeof SettingsSectionRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/oauth/google-drive/return': {
+      id: '/oauth/google-drive/return'
+      path: '/oauth/google-drive/return'
+      fullPath: '/oauth/google-drive/return'
+      preLoaderRoute: typeof OauthGoogleDriveReturnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/legal/': {
+      id: '/settings/legal/'
+      path: '/legal'
+      fullPath: '/settings/legal/'
+      preLoaderRoute: typeof SettingsLegalIndexRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/settings/legal/$document': {
+      id: '/settings/legal/$document'
+      path: '/legal/$document'
+      fullPath: '/settings/legal/$document'
+      preLoaderRoute: typeof SettingsLegalDocumentRouteImport
+      parentRoute: typeof SettingsRoute
+    }
+    '/api/public/hooks/backup-scheduler': {
+      id: '/api/public/hooks/backup-scheduler'
+      path: '/api/public/hooks/backup-scheduler'
+      fullPath: '/api/public/hooks/backup-scheduler'
+      preLoaderRoute: typeof ApiPublicHooksBackupSchedulerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/payments-razorpay': {
+      id: '/api/public/hooks/payments-razorpay'
+      path: '/api/public/hooks/payments-razorpay'
+      fullPath: '/api/public/hooks/payments-razorpay'
+      preLoaderRoute: typeof ApiPublicHooksPaymentsRazorpayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface ChatRouteChildren {
+  ChatUsernameRoute: typeof ChatUsernameRoute
+  ChatIndexRoute: typeof ChatIndexRoute
+}
+
+const ChatRouteChildren: ChatRouteChildren = {
+  ChatUsernameRoute: ChatUsernameRoute,
+  ChatIndexRoute: ChatIndexRoute,
+}
+
+const ChatRouteWithChildren = ChatRoute._addFileChildren(ChatRouteChildren)
+
+interface SettingsRouteChildren {
+  SettingsSectionRoute: typeof SettingsSectionRoute
+  SettingsIndexRoute: typeof SettingsIndexRoute
+  SettingsLegalDocumentRoute: typeof SettingsLegalDocumentRoute
+  SettingsLegalIndexRoute: typeof SettingsLegalIndexRoute
+}
+
+const SettingsRouteChildren: SettingsRouteChildren = {
+  SettingsSectionRoute: SettingsSectionRoute,
+  SettingsIndexRoute: SettingsIndexRoute,
+  SettingsLegalDocumentRoute: SettingsLegalDocumentRoute,
+  SettingsLegalIndexRoute: SettingsLegalIndexRoute,
+}
+
+const SettingsRouteWithChildren = SettingsRoute._addFileChildren(
+  SettingsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatRoute: ChatRouteWithChildren,
+  ConnectRoute: ConnectRoute,
+  ContactsRoute: ContactsRoute,
+  CreateAccountRoute: CreateAccountRoute,
+  HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
+  NotificationsRoute: NotificationsRoute,
+  QrRoute: QrRoute,
+  SettingsRoute: SettingsRouteWithChildren,
+  StatusRoute: StatusRoute,
+  VerifyRoute: VerifyRoute,
+  ProfileUsernameRoute: ProfileUsernameRoute,
+  ProfileIndexRoute: ProfileIndexRoute,
+  OauthGoogleDriveReturnRoute: OauthGoogleDriveReturnRoute,
+  ApiPublicHooksBackupSchedulerRoute: ApiPublicHooksBackupSchedulerRoute,
+  ApiPublicHooksPaymentsRazorpayRoute: ApiPublicHooksPaymentsRazorpayRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,24 +1,51 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { useApp } from "@/lib/store";
+import { NConnectLogo } from "@/components/NConnectLogo";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      { title: "N Connect — Private, End-to-End Encrypted Messaging" },
+      {
+        name: "description",
+        content:
+          "N Connect is a minimal, end-to-end encrypted way to find people nearby and chat privately.",
+      },
+      { property: "og:title", content: "N Connect — Private, Encrypted Messaging" },
+      {
+        property: "og:description",
+        content: "Find people nearby and chat privately with end-to-end encryption.",
+      },
+    ],
+  }),
+  component: Splash,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Splash() {
+  const navigate = useNavigate();
+  const { ready, signedIn } = useApp();
+
+  useEffect(() => {
+    if (!ready) return;
+    const t = setTimeout(() => navigate({ to: signedIn ? "/home" : "/login" }), 3000);
+    return () => clearTimeout(t);
+  }, [navigate, ready, signedIn]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center px-4">
+      <div
+        style={{ animation: "rise-in 1100ms cubic-bezier(0.22,1,0.36,1) both" }}
+        className="flex flex-col items-center text-center"
+      >
+        <h1 className="sr-only">N Connect</h1>
+        <NConnectLogo size={168} />
+        <p className="mt-3 text-[12px] font-normal tracking-[0.06em] text-ink-2">
+          End-to-End Encrypted
+        </p>
+      </div>
+    </main>
   );
 }
