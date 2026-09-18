@@ -36,6 +36,13 @@
       "when": 1789729877138,
       "tag": "0004_appearance_media_storage_policies",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1789734897461,
+      "tag": "0005_probe_visibility",
+      "breakpoints": true
     }
   ]
 }
