@@ -1,8 +1,8 @@
 # Roadmap
 
 ## Restore (current)
-- [x] Restored uploaded N Connect code; TypeScript check + production build green.
-- [ ] Backend connection: Cloud credentials intentionally absent in this workspace — existing tables/migrations (0000–0010) untouched, not re-applied.
+- [x] Restored uploaded N Connect code; build green; app renders in preview.
+- [x] Backend reconnected: fresh Cloud project provisioned, tables + storage policies applied, media buckets (status/chat/appearance) created. Data starts empty.
 - [x] Contact Requests: store wired to server helpers (migration 0011); `contact-wire.ts` removed.
 - [x] Connect screen wired to the real server matching system (migration 0013): eligibility, waiting/heartbeat, realtime, votes, cancel/end.
 - [ ] Connect temporary chat messages are still local to the device (no session-message table exists).
